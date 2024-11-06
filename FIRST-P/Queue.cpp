@@ -51,7 +51,9 @@ int dequeue(Queue* q)
         return q->array[0];
     }
 
-    
+}
+void cleanQueue(Queue* q)
+{
 
 }
 
