@@ -13,6 +13,8 @@ typedef struct Queue
 
 } Queue;
 
+void print(Queue* q);
+
 void initQueue(Queue* q, unsigned int size);
 void cleanQueue(Queue* q);
 

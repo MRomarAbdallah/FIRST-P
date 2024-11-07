@@ -1,9 +1,17 @@
 #include "Queue.h"
 #include <iostream>
-
+void print(Queue* q)
+{
+    int i = 0;
+    for (i = 0; i < q->length; i++)
+    {
+        std::cout << q->array[i] << std::endl;
+    }
+}
 void initQueue(Queue* q, unsigned int size)
 {
     int i = 0;
+    q->last = 0;
 
     q->array = new int[size];
 
@@ -17,39 +25,28 @@ void initQueue(Queue* q, unsigned int size)
 void enqueue(Queue* q, unsigned int newValue)
 {
     q->array[q->last] = newValue;
-
     q->last++;
 }
 int dequeue(Queue* q)
 {   
-    int i = 0, d = 0;
+    int i = 0, temo = 0;
+    temo = q->array[0];
 
-    q->array[q->first] = q->array[q->first++];
-
-    for (i = 0; i < q->length; i++)
-    {
-
-        if (q->last >= i)
-        {
-            d = q->array[q->first +2];
-
-            q->array[q->first++] = q->array[d];
-
-        }
-            
-    }
-
-    q->array[q->last] = -10;
-
-    if (q->array[0] == 0)
+    if (q->array[0] == -10)
     {
         return -1;
 
     }
-    else
+
+    for (i = 0; i < q->length; i++)
     {
-        return q->array[0];
+
+        q->array[i] = q->array[i+1];
+            
     }
+    q->array[q->last-1] = -10;
+
+    return temo;
 
 }
 void cleanQueue(Queue* q)
