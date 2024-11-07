@@ -32,11 +32,7 @@ int dequeue(Queue* q)
     int i = 0, temo = 0;
     temo = q->array[0];
 
-    if (q->array[0] == -10)
-    {
-        return -1;
 
-    }
 
     for (i = 0; i < q->length; i++)
     {
@@ -45,7 +41,11 @@ int dequeue(Queue* q)
             
     }
     q->array[q->last-1] = -10;
+    if (temo == -10)
+    {
+        return -1;
 
+    }
     return temo;
 
 }
