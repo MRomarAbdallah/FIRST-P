@@ -4,7 +4,6 @@
 typedef struct linkedList
 {
 	int num;
-	int length;
 	linkedList* next;
 
 

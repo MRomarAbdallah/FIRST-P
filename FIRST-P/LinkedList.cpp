@@ -10,17 +10,17 @@ linkedList* initlinkedList( unsigned int num)
 }
 void adderlinkedList(linkedList* l, unsigned int num)
 {
-	while (l != NULL)
-	{
-		l->next->num = l->num;
-		l->num = num;
-	}
-	
+
+	linkedList* s = num;
+	l->next = l;
+	l->num = l->length;
 }
 linkedList* rmovelinkedList(linkedList* l)
 {
-	l->num = l->next->num;
-	l->next->num = NULL;
+	linkedList* temo = 0;
+	temo = l->next;
+	free(l);
+	l = temo;
 }
 void printList(linkedList* l)
 {
